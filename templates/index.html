@@ -1,9 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Free QR Code Generator</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
 <form action="/" method="GET">
     <input type="text" name ="data">
     <button type="submit">Generate</button>
 </form>
-
 {% if image_ready %}
     <img src="/static/output.jpg">
 
 {% endif %}
+</body>
+</html>
+
