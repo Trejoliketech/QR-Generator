@@ -1,11 +1,20 @@
-from flask import Flask, send_file, request
+from flask import Flask, send_file, request, render_template
 import qrcode
+import os
+
+os.makedirs("static", exist_ok=True)
 
 app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "<form action='/generate' method='GET'><input type='text' name ='data'><button type='submit'>Generate</button></form>"
+    data = request.args.get("data")
+    if data:#Checks to make sure there is actual data within the user submitted url
+        generate_qr(data, "static/output.jpg")
+        return render_template("index.html", image_ready=True)
+    else:
+        return render_template("index.html", image_ready=False)
+    
 
 def generate_qr(data, filename):
     qr = qrcode.QRCode (
@@ -19,11 +28,11 @@ def generate_qr(data, filename):
     img = qr.make_image()
     img.save(filename)   
     
-@app.route("/generate")
-def generate_function():
-    data=request.args.get("data")
-    generate_qr(data, "output.jpg")
-    return send_file("output.jpg")
+# @app.route("/generate")
+# def generate_function():
+#     data=request.args.get("data")
+#     generate_qr(data, "output.jpg")
+#     return send_file("output.jpg")
 
 if __name__ == "__main__":
     app.run(debug=True)
