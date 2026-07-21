@@ -1,12 +1,12 @@
 # QR Code Generator
 
-A simple, ad-free QR code generator — no trackers, no paywalls, no premium tier. Type in a URL and get a QR code.
+A simple, ad-free QR code generator.
 
 **Live demo:** [your-free-qr-generator.onrender.com](https://your-free-qr-generator.onrender.com) *(free tier may take 30-60s to wake up on first load)*
 
 ## Why
 
-I thought something as simple as generating QR codes shouldn't be jumping through hoops or clicking close on ads. This also doubles as a first full stack project of mine that I'll continue to add features onto and support.
+I thought something as simple as generating QR codes shouldn't be jumping through hoops or clicking close on ads. While there are several ad free alternatives, this also doubles as a first full stack project of mine that I'll continue to add features onto and support.
 
 ## Features
 
